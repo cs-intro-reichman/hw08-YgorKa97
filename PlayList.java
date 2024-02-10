@@ -132,17 +132,17 @@ class PlayList {
      */
     public void remove(int i) {
         //// replace this comment with your code
-        if (this.size == 0 || i < 0 || i > this.size) {
+        if (this.size == 0 || i < 0 || i >= this.size) {
             return;
         }
         if (i == this.size - 1) {
             this.removeLast();
         } else {
-            this.tracks[i] = null;
-            this.size = this.size - 1;
             for (int j = i; j <= this.size; j++) {
-                this.tracks[i] = this.tracks[j + 1];
+                this.tracks[j] = this.tracks[j + 1];
             }
+            this.tracks[this.size - 1] = null;
+            this.size--;
         }
     }
 
