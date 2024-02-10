@@ -136,7 +136,7 @@ class PlayList {
             return;
         }
         if (i == this.size - 1) {
-            this.removeFirst();
+            this.removeLast();
         } else {
             this.tracks[i] = null;
             this.size = this.size - 1;
