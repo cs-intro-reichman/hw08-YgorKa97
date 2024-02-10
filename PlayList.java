@@ -190,21 +190,19 @@ class PlayList {
      * minimum value (5) when starting the search from index 2.
      * If start is negative or greater than size - 1, returns -1.
      */
-    private int minIndex(int start) {
+   private int minIndex(int start) {
         //// replace the following statement with your code
-        if (start >= 0 && start < this.size) {
-            int index = start;
-            int min = this.getTrack(start).getDuration();
-            for (int i = start; i < this.size; i++) {
-                if (this.getTrack(i).getDuration() < min) {
-                    index = i;
-                    min = this.getTrack(i).getDuration();
-                }
+        if (start < 0 || start > this.size - 1) {
+            return -1;
+        }
+        int index = start;
+        for (int i = start; i < this.size; i++) {
+            if (this.tracks[i].isShorterThan(tracks[index])) {
+                index = i;
 
             }
-            return index;
         }
-        return -1;
+        return index;
     }
 
     /**
