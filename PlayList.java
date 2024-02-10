@@ -138,7 +138,7 @@ class PlayList {
         if (i == this.size - 1) {
             this.removeLast();
         } else {
-            for (int j = i; j <= this.size; j++) {
+            for (int j = i; j < this.size - 1; j++) {
                 this.tracks[j] = this.tracks[j + 1];
             }
             this.tracks[this.size - 1] = null;
