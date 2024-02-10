@@ -192,19 +192,18 @@ class PlayList {
      */
     private int minIndex(int start) {
         //// replace the following statement with your code
-        if (start < 0 || start > this.size - 1) {
+        if (start < 0 || start >= this.size - 1) {
             return -1;
-        } else {
-            int index = start;
-            int min = this.getTrack(start).getDuration();
-            for (int i = start; i < this.size; i++) {
-                if (this.getTrack(i).getDuration() < min) {
-                    index = i;
-                    min = this.getTrack(i).getDuration();
-                }
-            }
-            return index;
         }
+        int index = start;
+        int min = this.getTrack(start).getDuration();
+        for (int i = start; i < this.size; i++) {
+            if (this.getTrack(i).getDuration() < min) {
+                index = i;
+                min = this.getTrack(i).getDuration();
+            }
+        }
+        return index;
     }
 
     /**
